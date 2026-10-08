@@ -23,7 +23,15 @@ app.get("/", (req, res) => {
     res.send("Server is running!");
 });
 
-//diko maalala pag gawa post functionn!!!!!
+app.post("/students", async (req, res) => {
+    const students = new Student ({
+        name: req.body.studentName,
+        course: req.body.studentCourse,
+        age: req.body.studentAge
+    });
+
+    res.send(students);
+})
 
 app.get("/students", async (req, res) => {
     const students = await Student.find();
